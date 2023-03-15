@@ -2,7 +2,7 @@
 
 <!--INICIO del cont principal-->
 <div class="container">
-    <h1>Contenido principal Imagenes de sorteos</h1>
+    <h1>Contenido principal Imagenes Web</h1>
 
     <?php
    include_once 'bd/conexion.php';
@@ -33,8 +33,8 @@
                         <thead class="text-center">
                             <tr>
                                 <th>Id</th>
-                                <th>Tipo sorteo</th>
-                                <th>Numero sorteo</th>
+                                <th>Tipo</th>
+                                <th>No. sorteo/carrucel</th>
                                 <th>Estado</th>
                                 <th>Imagen</th>
                                 <th>Acciones</th>
@@ -111,10 +111,10 @@
 
                                     <div class="modal-body">
                                             <div class="form-group">
-                                            <label for="tipo_sorteo" class="col-form-label">Tipo Sorteo:</label>
+                                            <label for="tipo_sorteo" class="col-form-label">Tipo:</label>
                                             <select class="form-control" value="<?php echo $nombre ?>" name="tipoSorteo" required>
                                                 <?php
-                                                        $consulta="SELECT CODIGO, NOMBRE FROM tbl_tipo_imagen WHERE CODIGO IN (1,2);
+                                                        $consulta="SELECT CODIGO, NOMBRE FROM tbl_tipo_imagen WHERE CODIGO IN (1,2,3);
                                                         
                                                         ";
                                                         $resultado = $conexion->query($consulta);
@@ -131,7 +131,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="form-group">
-                                            <label for="Nsorteo" class="col-form-label">Numero Sorteo:</label>
+                                            <label for="Nsorteo" class="col-form-label">No. Sorteo/carrucel:</label>
                                             <input type="text" value="<?php echo $sorteo ?>" class="form-control" name="Nsorteo" placeholder="Ejem: 1420" required>
                                             </div>
                                         </div>
@@ -212,7 +212,7 @@
                 <label for="tipo_sorteo" class="col-form-label">Tipo Sorteo:</label>
                 <select class="form-control" name="tipoSorteo" required ="valor solicitado">
                     <?php
-                            $consulta="SELECT CODIGO, NOMBRE FROM tbl_tipo_imagen WHERE CODIGO IN (1,2);";
+                            $consulta="SELECT CODIGO, NOMBRE FROM tbl_tipo_imagen WHERE CODIGO IN (1,2,3);";
                             $resultado = $conexion->query($consulta);
                             foreach($resultado as $datos_sorteo){
 

@@ -18,7 +18,7 @@ if($_SESSION["s_usuario"] === null){
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>PANI-Administrador-Web</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -47,7 +47,7 @@ if($_SESSION["s_usuario"] === null){
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">Administrador Web</div>
       </a>
 
       <!-- Divider -->
@@ -65,23 +65,23 @@ if($_SESSION["s_usuario"] === null){
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Interface
+        Interfaces
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Components</span>
+          <span>Contenidos</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
+            <h6 class="collapse-header">Pantallas:</h6>
         <!--<a class="collapse-item" href="index_categoriaImagen.php">Categoria Imagen</a>-->
             <a class="collapse-item" href="index.php">Tipo de dato</a>
             <a class="collapse-item" href="index_empresa.php">Empresa</a>
             <a class="collapse-item" href="index_tipoImagen.php">Tipo de Imagen</a>
-            <a class="collapse-item" href="index_imagenSorteo.php">Imagenes sorteos</a>
+            <a class="collapse-item" href="index_imagenSorteo.php">Imagenes Web</a>
 
             
 
@@ -129,7 +129,7 @@ if($_SESSION["s_usuario"] === null){
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
               </a>
-              <!-- Dropdown - Messages -->
+              <!-- Dropdown - Messages 
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
@@ -142,16 +142,16 @@ if($_SESSION["s_usuario"] === null){
                   </div>
                 </form>
               </div>
-            </li>
+            </li>-->
 
-            <!-- Nav Item - Alerts -->
+            <!-- Nav Item - Alerts 
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
+                <i class="fas fa-bell fa-fw"></i>-->
                 <!-- Counter - Alerts -->
                 <span class="badge badge-danger badge-counter">3+</span>
               </a>
-              <!-- Dropdown - Alerts -->
+              <!-- Dropdown - Alerts
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
                   Alerts Center
@@ -163,7 +163,7 @@ if($_SESSION["s_usuario"] === null){
                     </div>
                   </div>
                   <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
+                    <div class="small text-gray-500">Abril, 2023</div>
                     <span class="font-weight-bold">A new monthly report is ready to download!</span>
                   </div>
                 </a>
@@ -191,15 +191,15 @@ if($_SESSION["s_usuario"] === null){
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
               </div>
-            </li>
+            </li> -->
 
-            <!-- Nav Item - Messages -->
+            <!-- Nav Item - Messages 
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw"></i>
-                <!-- Counter - Messages -->
+                <i class="fas fa-envelope fa-fw"></i>-->
+                <!-- Counter - Messages 
                 <span class="badge badge-danger badge-counter">7</span>
-              </a>
+              </a>-->
               <!-- Dropdown - Messages -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">

@@ -84,7 +84,10 @@
             <div class="modal-body">
                 <div class="form-group">
                 <label for="estado" class="col-form-label">Estado:</label>
-                <input type="text" class="form-control" id="estado">
+                    <select class="form-control" id="estado">
+                        <option value="ACTIVO">ACTIVO</option>
+                        <option value="INACTIVO">INACTIVO</option>
+                    </select>
                 </div>
             </div>
             <div class="modal-footer">
