@@ -43,11 +43,34 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
                         </thead>
                         <tbody>
                             <?php                            
-                            foreach($data as $dat) {                                                        
+                            foreach($data as $dat) {    
+                                
+                                $tipo_dato = $dat['CODIGO_TIPO_DATO'];
+
+                                switch($tipo_dato){
+                                    case 1:
+                                        $nombreDato = "RAZON SOCIAL";
+                                        break;
+                                    case 2:
+                                        $nombreDato = "TELEFONO";
+                                        break;
+                                    case 3:
+                                        $nombreDato = "CORREO ELECTRÓNICO";
+                                        break;
+                                      case 4:
+                                        $nombreDato = "SITIO WEB";
+                                        break;
+                                       case 5:
+                                        $nombreDato = "DIRECCIÓN";
+                                        break;
+
+
+                                }
+                                
                             ?>
                             <tr>
                                 <td><?php echo $dat['CODIGO'] ?></td>
-                                <td><?php echo $dat['CODIGO_TIPO_DATO'] ?></td>
+                                <td><?php echo $nombreDato; ?></td>
                                 <td><?php echo $dat['CONTENIDO'] ?></td>
                                 <td></td>
                             </tr>

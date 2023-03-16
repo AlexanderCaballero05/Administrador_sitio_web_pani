@@ -23,6 +23,8 @@ if($resultado->rowCount() >= 1){
     $data=null;
 }
 
+
+
 print json_encode($data);
 $conexion=null;
 

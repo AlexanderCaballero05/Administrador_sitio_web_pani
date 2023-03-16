@@ -19,33 +19,34 @@
      
       <div class="container-login">
       <div class="card wrap-login">
-                <div class="card-header" style="color:#fff; background: #eceff1; margin-top: 0">
+
+      <div class="card-header" style="color:#fff; background: #eceff1; margin-top: 0">
                <ul class="nav nav-tabs card-header-tabs" style="margin-bottom: 20%; margin-top: 0">
                 <li class="nav-item">
-                <a class=" nav-link active" style="color:#000;" href="#">Iniciar Sesión</a>
+                <a class=" nav-link" style="color:#000;" href="index.php">Iniciar Sesión</a>
                 </li>
                 <li class="nav-item">
-                <a class=" nav-link" style="color:#000;" href="registrar.php">Registrar</a>
+                <a class=" nav-link active" style="color:#000;" href="#">Registrar</a>
                 </li>
             </ul>
         <div>
-            <form class="login-form validate-form" id="formLogin" action="" method="post">
-                <span class="login-form-title">Iniciar Sesión</span>
+            <form class="login-form validate-form" id="" action="bd/login.php" method="post">
+                <span class="login-form-title">Registrar</span>
                 
                 <div class="wrap-input100" data-validate = "Usuario incorrecto">
-                    <input class="input100" type="text" id="usuario" name="usuario" placeholder="Usuario">
+                    <input class="input100" type="text" id="usuario" name="usuario_r" placeholder="Usuario" autocomplete="OFF">
                     <span class="focus-efecto"></span>
                 </div>
                 
                 <div class="wrap-input100" data-validate="Password incorrecto">
-                    <input class="input100" type="password" id="password" name="password" placeholder="Password">
+                    <input class="input100" type="password" id="password" name="password_r" placeholder="Password" autocomplete="off" autocapitalize="ON">
                     <span class="focus-efecto"></span>
                 </div>
                 
                 <div class="container-login-form-btn">
                     <div class="wrap-login-form-btn">
                         <div class="login-form-bgbtn"></div>
-                        <button type="submit" name="submit" class="login-form-btn">CONECTAR</button>
+                        <button type="submit" name="submit" class="login-form-btn" name="registrar_usuario">REGISTRAR</button>
                     </div>
                 </div>
             </form>
