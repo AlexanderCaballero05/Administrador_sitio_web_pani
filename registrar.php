@@ -26,27 +26,27 @@
                 <a class=" nav-link" style="color:#000;" href="index.php">Iniciar Sesión</a>
                 </li>
                 <li class="nav-item">
-                <a class=" nav-link active" style="color:#000;" href="#">Registrar</a>
+                <a class=" nav-link active" style="color:#000;" href="#">Registrarse</a>
                 </li>
             </ul>
         <div>
-            <form class="login-form validate-form" id="" action="bd/login.php" method="post">
-                <span class="login-form-title">Registrar</span>
+        <form class="login-form validate-form" id="formRegistrar" action="" method="post">
+                <span class="login-form-title">Registrarse</span>
                 
                 <div class="wrap-input100" data-validate = "Usuario incorrecto">
-                    <input class="input100" type="text" id="usuario" name="usuario_r" placeholder="Usuario" autocomplete="OFF">
+                    <input class="input100" type="text" minlength="5" maxlength="25" id="usuario" name="usuario" placeholder="Usuario" autocomplete="off">
                     <span class="focus-efecto"></span>
                 </div>
                 
                 <div class="wrap-input100" data-validate="Password incorrecto">
-                    <input class="input100" type="password" id="password" name="password_r" placeholder="Password" autocomplete="off" autocapitalize="ON">
+                    <input class="input100" type="password" minlength="8" maxlength="20" id="password" name="password" placeholder="Password" autocomplete="off">
                     <span class="focus-efecto"></span>
                 </div>
                 
                 <div class="container-login-form-btn">
                     <div class="wrap-login-form-btn">
                         <div class="login-form-bgbtn"></div>
-                        <button type="submit" name="submit" class="login-form-btn" name="registrar_usuario">REGISTRAR</button>
+                        <button type="submit" name="submit" class="login-form-btn">REGISTRAR</button>
                     </div>
                 </div>
             </form>

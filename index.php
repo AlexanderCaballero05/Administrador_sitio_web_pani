@@ -25,7 +25,7 @@
                 <a class=" nav-link active" style="color:#000;" href="#">Iniciar Sesión</a>
                 </li>
                 <li class="nav-item">
-                <a class=" nav-link" style="color:#000;" href="registrar.php">Registrar</a>
+                <a class=" nav-link" style="color:#000;" href="registrar.php">Registrarse</a>
                 </li>
             </ul>
         <div>
@@ -33,12 +33,12 @@
                 <span class="login-form-title">Iniciar Sesión</span>
                 
                 <div class="wrap-input100" data-validate = "Usuario incorrecto">
-                    <input class="input100" type="text" id="usuario" name="usuario" placeholder="Usuario">
+                    <input class="input100" type="text" maxlength="30" id="usuario" name="usuario" placeholder="Usuario" autocomplete="off">
                     <span class="focus-efecto"></span>
                 </div>
                 
                 <div class="wrap-input100" data-validate="Password incorrecto">
-                    <input class="input100" type="password" id="password" name="password" placeholder="Password">
+                    <input class="input100" type="password" maxlength="30" id="password" name="password" placeholder="Password" autocomplete="off">
                     <span class="focus-efecto"></span>
                 </div>
                 
