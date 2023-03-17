@@ -7,7 +7,7 @@ $('#formLogin').submit(function(e){
    if(usuario.length == "" || password == ""){
       Swal.fire({
           type:'warning',
-          title:'Debe ingresar un usuario y/o password',
+          title:'Debe ingresar un usuario y/o password'
       });
       return false; 
     }else{
@@ -20,7 +20,8 @@ $('#formLogin').submit(function(e){
                if(data == "null"){
                    Swal.fire({
                        type:'error',
-                       title:'Usuario y/o password incorrecta',
+                       title:'Usuario o contraseña incorrectas',
+                       footer: '<button class="btn btn-warning"><a style="color: black; text-decoration:none; " href="cambiar_contrasena.php">¿olvido su contraseña?, Click aqui</a></button>'
                    });
                }else{
                    Swal.fire({

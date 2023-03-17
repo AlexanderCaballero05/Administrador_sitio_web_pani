@@ -38,7 +38,24 @@ switch($opcion){
             $data=null;
         }
         break;
+    case 3:
+        $usuario = (isset($_POST['usuario'])) ? $_POST['usuario'] : "";
+        $Cnueva = (isset($_POST['Cnueva'])) ? $_POST['Cnueva'] : "";
 
+        $consulta = "SELECT usuario FROM usuarios WHERE usuario ='$usuario';";
+        $resultado =$conexion->prepare($consulta);
+        $resultado->execute();
+
+        if($resultado->rowCount() >= 1){
+            $consultaCambio = "UPDATE usuarios SET password = md5('$Cnueva') WHERE (usuario = '$usuario');";
+            $resultadoCambio = $conexion->prepare($consultaCambio);
+            $resultadoCambio->execute();
+            $data = $ $resultadoCambio->fetchAll(PDO::FETCH_ASSOC);
+        }else{
+            $data=null;
+        }
+
+        break;
 
 
 }
