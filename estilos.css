@@ -81,10 +81,11 @@ button:hover {
 .login-form-title {
   display: block;
   font-family: Poppins-Bold;
-  font-size: 40px;
+  font-size: 35px;
   color: #333333;
   line-height: 1.5;
   text-align: center;
+  padding-bottom: 1em;
 }
 
 

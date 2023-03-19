@@ -15,20 +15,20 @@
 <body>
     <div class="container-login">
         <div class="card wrap-login">
-            <form class="login-form validate-form" action="" id="cambiarContrasena">
+            <form class="login-form validate-form" action="" id="cambiarContrasena" autocomplete="off">
             <span class="login-form-title">Cambiar contraseña</span>
                 <div class="wrap-input100">
-                    <input class="input100" type="text" minlength="5" maxlength="25" id="usuario" name="usuario" placeholder="usuario">
+                    <input class="input100" type="text" minlength="5" maxlength="25" id="usuario" name="usuario" placeholder="usuario" autocomplete="off">
                     <span class="focus-efecto"></span>
                 </div>
 
                 <div class="wrap-input100">
-                    <input type="text" class="input100" minlength="8" maxlength="20" id="Cnueva" name="Cnueva" placeholder="Nueva contraseña">
+                    <input type="password" class="input100" minlength="8" maxlength="20" id="Cnueva" name="Cnueva" placeholder="Nueva contraseña" autocomplete="off">
                     <span class="focus-efecto"></span>
                 </div>
 
                 <div class="wrap-input100">
-                    <input type="text" class="input100" minlength="8" maxlength="20" id="Cconfirmar" name="Cconfirmar" placeholder="Confirmar contraseña">
+                    <input type="password" class="input100" minlength="8" maxlength="20" id="Cconfirmar" name="Cconfirmar" placeholder="Confirmar contraseña" autocomplete="off">
                     <span class="focus-efecto"></span>
                 </div>
                 <div class="container-login-form-btn">
@@ -43,7 +43,7 @@
             <div class="container-login-form-btn">
                     <div class="wrap-login-form-btn">
                         <div class="login-form-bgbtnn"></div>
-                        <a href="index.php"><button type="" name="" class="login-form-btn">CANCELAR</button></a>
+                        <a href="index.php" style="text-decoration: none;"><button type="" name="" class="login-form-btn">CANCELAR</button></a>
                     </div>
                 </div>
             
