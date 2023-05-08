@@ -81,11 +81,7 @@ switch($opcion){
 
 
         
-
-
-
-
-print json_encode($data);
+echo json_encode($data);
 $conexion=null;
 
 //usuarios de pruebaen la base de datos
