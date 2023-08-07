@@ -7,12 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Login Web pani</title>
 
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="login/estilos.css">
         <link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css">        
-        
-        <link rel="stylesheet" type="text/css" href="fuentes/iconic/css/material-design-iconic-font.min.css">
-        
+        <link rel="stylesheet" type="text/css" href="assets/fuentes/iconic/css/material-design-iconic-font.min.css">    
     </head>
     
     <body>
@@ -25,7 +23,7 @@
                 <a class=" nav-link active" style="color:#000;" href="#">Iniciar Sesión</a>
                 </li>
                 <li class="nav-item">
-                <a class=" nav-link" style="color:#000;" href="registrar.php">Registrarse</a>
+                <a class=" nav-link" style="color:#000;" href="login/views/registrar.php">Registrarse</a>
                 </li>
             </ul>
         <div>
@@ -65,6 +63,6 @@
      <script src="popper/popper.min.js"></script>    
         
      <script src="plugins/sweetalert2/sweetalert2.all.min.js"></script>    
-     <script src="codigo.js"></script>    
+     <script src="login/model/codigo.js"></script>    
     </body>
 </html>
