@@ -11,8 +11,6 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 switch($method){
     case 'GET':
-    //CODIGO PARA EDITAR
-
         if(isset($_GET['editarModal']))
         {
             $codigo = $_GET['CODIGO'];
@@ -71,7 +69,8 @@ switch($method){
             case 'POST':
             //Insertar un registro
             
-            if (isset($_GET['noCategoria'])) {
+            if (isset($_GET['noCategoria'])) 
+            {
                     /**
                      * leer el cuerpo de la solicitud que viene en formato json
                      */
@@ -99,12 +98,24 @@ switch($method){
                 
 
                     
-                }else{
-                    $response = array('estado' => "noIngresado");
-                    die(json_encode($response)); 
-            break;
+            }else if(isset($_GET['Editardatos']))
+            {
+                $inputs_editar = json_decode(file_get_contents('php://input'), true);
+                $codigo_Categoria = $inputs_editar['CodCategoriaEditar'];
+                $nombre_categoria = $inputs_editar['NombreCategoria'];
+                $TipoEx_Categoria = $inputs_editar['TipoExt'];
+                $estado_Categoria = $inputs_editar['EstadoEditar'];
 
-                }            
+                $query_update = mysqli_query($conect, "UPDATE tbl_categoria_imagen SET NOMBRE = '$nombre_categoria', TIPO_EXT = '$TipoEx_Categoria', ESTADO = '$estado_Categoria' WHERE CODIGO = '$codigo_Categoria'");
+
+                $response = array('estado' => "editato");
+                die(json_encode($response));
+                break;
+            }else{
+                $response = array('estado' => "Noeditado");
+                die(json_encode($response));
+                break;
+            }
 
 
 }

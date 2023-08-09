@@ -31,8 +31,8 @@ function mostrarRegistrosCategoriaImagen(registros)
             <td class="text-center">${registro.TIPO_EXT}</td>
             <td class="text-center">${registro.ESTADO}</td>
             <td>
-            <button class="btn btn-primary" onclick="editarModalCategoria(${registro.CODIGO})"> <span>Editar</span><i class="fa fa-check-square" aria-hidden="true"></i></button>
-            <button class="btn btn-danger" onclick="editarModalCategoria()"> <span>Borrar</span><i class="fa fa-check-square" aria-hidden="true"></i></button>
+            <button class="btn btn-primary" onclick="MostrarModalEditar(${registro.CODIGO})"> <span>Editar</span><i class="fa fa-check-square" aria-hidden="true"></i></button>            <butto
+            <button class="btn btn-danger" onclick="MostrarModalEditar(${registro.CODIGO})"> <span>Borrar</span><i class="fa fa-check-square" aria-hidden="true"></i></button>
             </td>
          </tr>
          
@@ -44,7 +44,11 @@ function mostrarRegistrosCategoriaImagen(registros)
  /**************************************************************************************************************************************************************************
   ************************************************ BLOQUE DE CODIGO PARA EDITAR UNA CATEGORIA*******************************************************************************
   **************************************************************************************************************************************************************************/
- function editarModalCategoria(CODIGO) 
+ /**
+  * Funcion que muestra el modal con el formulario para editar los datos de un registro
+  * @param {*se recibe el codigo del registro a editar} CODIGO 
+  */
+  function MostrarModalEditar(CODIGO) 
  {
     $("#modal-editar-categoria-imagen").modal("show");
     // document.getElementById("editarCodcategoria").value = CODIGO;
@@ -53,8 +57,8 @@ function mostrarRegistrosCategoriaImagen(registros)
     .then((respuestaServer) => {
         document.getElementById("editarCodCategoria").value = respuestaServer[0].CODIGO;
         document.getElementById("editarNocategoria").value = respuestaServer[0].NOMBRE;
-        document.getElementById("editarTipoExt").value = respuestaServer[0].TIPO_EXT;
         document.getElementById("editarEstado").value = respuestaServer[0].ESTADO;
+        document.getElementById("editarTipoExt").value = respuestaServer[0].TIPO_EXT;
     })
 
 
@@ -63,17 +67,84 @@ function mostrarRegistrosCategoriaImagen(registros)
 /**
  * Codigo para validar la entrada de datos al formulario de editar categoria imagen
  */
-//  $("body").on("submit", "#form-editar-categoria", function(event) 
-//  {
-//     event.preventDefault();
-//     if($("#form-editar-categoria"))
-//     {
-//         let editarCodCategoria = document.getElementById("editarCodCategoria").value;
+
+ $("body").on("submit", "#form-editar-categoria", function(event) 
+ {
+    event.preventDefault();
+    if($("#form-editar-categoria"))
+    {
+        let NombreValido = document.getElementById("respuestaEditar");
+        let CodCategoriaEditar = document.getElementById("editarCodCategoria").value;
+        let NombreCategoria = document.getElementById("editarNocategoria").value;
+        let TipoExt = document.getElementById("editarTipoExt").value
+        let EstadoEditar = document.getElementById("editarEstado").value 
+        
+        if (NombreCategoria == "" || TipoExt == "" || EstadoEditar == "") 
+        {
+            Swal.fire({
+                icon: "error",
+                title: "Debe ingresar todos los datos",
+                text: "Ingrese los datos solitados"
+            })
+            
+        }else if(NombreCategoria.length < 5 || NombreCategoria.length > 20){
+            NombreValido.innerHTML = `
+            <div class="alert alert-danger" role="alert">
+                Ingresa un nombre valido
+            </div>
+            `
+           return 0;
+        }else{
+            //Llamada a la function
+            NombreValido.innerHTML = "";
+            //Si se pasan las validaciones se llama la funcion para realizar la edición de datos
+            editarDatos(CodCategoriaEditar, NombreCategoria, TipoExt, EstadoEditar);
+       }
+    }
+ });
+
+ /**
+  * 
+  * @param {*Se recibe el codigo de registro a editar} CodCategoriaEditar 
+  * @param {*Se recibe el nombre de la categoria a editar} NombreCategoria 
+  * @param {*Se recibe el tipo de extencion de la categoria de la imagen} TipoExt 
+  * @param {*Se recibe el estado de la categoria} EstadoEditar 
+  * @returns Mensaje de confirmacion que se realizo una solicitud exitosa o fallida
+  */
+ function editarDatos(CodCategoriaEditar, NombreCategoria, TipoExt, EstadoEditar) 
+ {
+    fetch(`../database/crudCategoriaImagen.db.php?Editardatos=Editardatos&cod=${CodCategoriaEditar}&nombre=${NombreCategoria}&tiExtencion=${TipoExt}&estado${EstadoEditar}`, {
+        method: "POST",
+        body: JSON.stringify({CodCategoriaEditar, NombreCategoria, TipoExt, EstadoEditar}),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then((response) => response.json())
+        .then((respuestaServer) => {
+            if(respuestaServer.estado === "editato")
+            {
+                swal.fire({
+                    icon: "success",
+                    title: "Solicitud exitosa",
+                    text: "La edición se ha realizado correctamente"
+
+                })
+            }else if(respuestaServer.estado === "Noeditado"){
+                swal.fire({
+                    icon: "Error",
+                    title: "Solicitud fallida",
+                    text: "Ha ocurrido un error inersperado al realizar la edición",
+
+                })
+
+            }
+
+        })
+
     
-//         return 0;
-//     }
     
-//  })
+ }
  
  /*
   *************************************************Codigo para agregar un registro**************************************** 

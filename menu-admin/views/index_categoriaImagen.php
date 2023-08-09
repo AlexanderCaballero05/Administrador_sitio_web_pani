@@ -54,6 +54,8 @@
                                 <input type="text" name="" id="nombreCat" class="form-control" maxlength="20" onkeyup="mayus(this);">
                             </div>
                         </div>
+                        <div class="mt-3" id="respuesta">
+                        </div>
 
                         <div class="row mb-3">
                             <div class="col-sm-6">
@@ -79,10 +81,7 @@
                             <button class="btn btn-primary" type="submit">Guardar</button>
                           </div>
                         </div>
-                    </form>
-                    <div class="mt-3" id="respuesta">
-
-                    </div>
+                    </form>              
             </div>
         </div>
     </div>
@@ -97,13 +96,16 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
             </div>
-                <form id="form-editar-categoria">    
+                 <form id="form-editar-categoria">    
                     <div class="modal-body">
                         <input type="hidden" id="editarCodCategoria">
                         <div class="form-group">
                             <label for="nombre" class="col-form-label">Nombre:</label>
                             <input type="text" class="form-control" id="editarNocategoria">
                         </div>
+                        <div class="mt-3" id="respuestaEditar">
+
+                       </div> 
                         <div class="form-group">
                            <label for="editarTipoExt" class="col-form-label">Tipo Ext</label>
                             <select id="editarTipoExt" class="form-control">
@@ -122,9 +124,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" id="btnGuardar" class="btn btn-dark">Guardar</button>
+                        <button type="submit" class="btn btn-dark">Guardar</button>
                     </div>
-                </form>    
+                 </form>   
         </div>
     </div>
 </div>  
