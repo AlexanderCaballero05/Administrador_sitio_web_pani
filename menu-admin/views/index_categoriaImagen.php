@@ -101,7 +101,7 @@
                         <input type="hidden" id="editarCodCategoria">
                         <div class="form-group">
                             <label for="nombre" class="col-form-label">Nombre:</label>
-                            <input type="text" class="form-control" id="editarNocategoria">
+                            <input type="text" class="form-control" id="editarNocategoria" maxlength="20" onkeyup="mayus(this);">
                         </div>
                         <div class="mt-3" id="respuestaEditar">
 
