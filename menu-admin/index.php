@@ -1,4 +1,4 @@
-<?php require_once "vistas/parte_superior.php"?>
+<?php require_once "views/parte_superior.php"?>
 
 <!--INICIO del cont principal-->
 <div class="container">
@@ -92,4 +92,4 @@ $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
     
 </div>
 <!--FIN del cont principal-->
-<?php require_once "vistas/parte_inferior.php"?>
+<?php require_once "views/parte_inferior.php"?>

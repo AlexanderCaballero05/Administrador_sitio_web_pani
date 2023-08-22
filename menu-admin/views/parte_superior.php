@@ -82,16 +82,16 @@ if($_SESSION["s_usuario"] === null){
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Pantallas</h6>
         <!--<a class="collapse-item" href="index_categoriaImagen.php">Categoria Imagen</a>-->
-            <a class="collapse-item" href="../index.php">Tipo de dato</a>
-            <a class="collapse-item" href="../index_empresa.php">Empresa</a>
+            <!-- <a class="collapse-item" href="../index.php">Tipo de dato</a> -->
+            <!-- <a class="collapse-item" href="../index_empresa.php">Empresa</a> -->
             <a class="collapse-item" href="index_categoriaImagen.php">Categoria Imagen</a>
             <a class="collapse-item" href="index_tipoCategoriaImagen.php">Tipo Categoria Imagen</a>
-            <a class="collapse-item" href="index_imagenSorteo.php">Imagenes Web</a>
-            <a class="collapse-item" href="index_imagenSorteo.php">Profesión</a>
-            <a class="collapse-item" href="index_imagenSorteo.php">Autoridades</a>
+            <a class="collapse-item" href="index_imagenesSite.php">Imagenes Web</a>
+            <!-- <a class="collapse-item" href="index_imagenSorteo.php">Profesión</a> -->
+            <!-- <a class="collapse-item" href="index_imagenSorteo.php">Autoridades</a>
             <a class="collapse-item" href="index_imagenSorteo.php">Categoria Institución</a>
             <a class="collapse-item" href="index_imagenSorteo.php">Tipo Categoria Institución</a>
-            <a class="collapse-item" href="index_imagenSorteo.php">Atribucion Institución</a>
+            <a class="collapse-item" href="index_imagenSorteo.php">Atribucion Institución</a> -->
           </div>
         </div>
       </li>
