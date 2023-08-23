@@ -14,7 +14,7 @@ switch ($method) {
         if (isset($_GET['getCatImagen'])) 
         {
             $query_select = mysqli_query($conect, "SELECT * FROM tbl_categoria_imagen;");
-            if (mysqli_num_rows($query_select) < 0)
+            if (mysqli_num_rows($query_select) <= 0)
              {
                $response = array('estado' => "SinRegistros");
                die(json_encode($response));

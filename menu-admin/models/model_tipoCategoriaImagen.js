@@ -54,10 +54,9 @@ function getCategoriasImagen()
     .then((response) => response.json())
     .then((registros) => {
         if (registros.estado === "SinRegistros") {
-            return null;
-            
+            return 0;
         } else {
-        showTiposCategoriasImagen(registros);            
+            showCategoriasImagen(registros);            
             
         }
 
