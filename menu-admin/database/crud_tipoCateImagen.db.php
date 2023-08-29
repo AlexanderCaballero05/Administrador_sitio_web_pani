@@ -62,8 +62,10 @@ switch ($method) {
             $codigo_categoria = $_GET['codigo'];
             $tipo_categoria = $_GET['tipo'];
             $estado_categoria = $_GET['estado'];
+            $observaciones = $_GET['observaciones'];
+
             
-            $query_insert = mysqli_query($conect, "INSERT INTO tbl_tipo_categoria_imagen (CODIGO_CATEGORIA, NOMBRE_TIPO, ESTADO) VALUES ('$codigo_categoria','$tipo_categoria','$estado_categoria')");
+            $query_insert = mysqli_query($conect, "INSERT INTO tbl_tipo_categoria_imagen (CODIGO_CATEGORIA, NOMBRE_TIPO, OBSERVACIONES, ESTADO) VALUES ('$codigo_categoria','$tipo_categoria', '$observaciones','$estado_categoria')");
 
             $response = array('estado' => "ingresado");
                die(json_encode($response));

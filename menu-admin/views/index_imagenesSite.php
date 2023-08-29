@@ -5,7 +5,7 @@
     <div class="conteiner mb-5">
       <div class="row">
         <div class="col-lg-12">
-            <button class="btn btn-success" onclick="mostrarModalAgregarImagen()"><span>Agregar </span><i class="fa fa-plus-square" aria-hidden="true"></i></button>
+            <button class="btn btn-success" id="agregue" type="button"><span>Agregar </span><i class="fa fa-plus-square" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
@@ -110,7 +110,9 @@
         }
     </script>
 
-    <script src="../models/model_imagenesSite.js"></script>
+    
+
+    <script type="module" src="../models/model_imagenesSite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <?php require_once "parte_inferior.php"?>

@@ -93,6 +93,7 @@ function agregarDatos()
         let CodCategoria = datos.get('codigoCat');
         let tipoCategoria = datos.get('noTipoCat');
         let estado = datos.get('estadoTipoCat');
+        let observaciones = datos.get('obserTipoCat')
 
         if(tipoCategoria == "" || CodCategoria == "" || estado == "")
         {
@@ -103,9 +104,9 @@ function agregarDatos()
           return 0;
        }
        //enviar los datos al servidor y esperar una respuesta
-       fetch(`../database/crud_tipoCateImagen.db.php?insert=insert&codigo=${CodCategoria}&tipo=${tipoCategoria}&estado=${estado}`, {
+       fetch(`../database/crud_tipoCateImagen.db.php?insert=insert&codigo=${CodCategoria}&tipo=${tipoCategoria}&estado=${estado}&observaciones=${observaciones}`, {
         method: "POST",
-        body: JSON.stringify({CodCategoria, tipoCategoria, estado}),
+        body: JSON.stringify({CodCategoria, tipoCategoria, estado, observaciones}),
         headers: {
             "content-Type": "application/json",
         },    

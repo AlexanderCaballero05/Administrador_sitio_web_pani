@@ -69,6 +69,14 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-12">
+                                <label for="obserTipoCat">Observaciones</label>
+                                <textarea class="form-control" name="obserTipoCat" id="obserTipoCat"></textarea>
+                            </div>
+                        </div>
+
+
                         <div class="row mt-5 align-content-end">
                             <div class="col-sm-4">
                                 <button type="submit" class="btn btn-primary">Guardar</button>
