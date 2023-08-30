@@ -70,7 +70,6 @@ switch ($method) {
             $response = array('estado' => "ingresado");
                die(json_encode($response));
         } else {
-            //CODIGO PARA REALIZAR UN UPDATE DEL TIPO DE CATEGORIA
             $response = array('estado' => "Noingresado");
                die(json_encode($response));
         }

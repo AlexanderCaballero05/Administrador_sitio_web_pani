@@ -47,14 +47,13 @@
                 <div class="modal-body">
                     <form action="" id="form-agregar-imagen">
                         <div class="row mb-5">
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 selector-categoria">
                                 <label>Categoria Imagen</label>
                                 <select id="codigoCat" name="codigoCat" class="form-control">
-                                <option selected disabled>Seleccione</option>
                                 </select>
                             </div>
                             
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 selector-tipo">
                                 <label>Tipo Categoria Imagen</label>
                                 <select id="codigoTipoCat" name="codigoTipoCat" class="form-control">
                                 <option selected disabled>Seleccione</option>

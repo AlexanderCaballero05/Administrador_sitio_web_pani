@@ -19,17 +19,40 @@ switch ($method) {
             $query_select = mysqli_query($conect, "SELECT catTipo.CODIGO, catTipo.NOMBRE_TIPO FROM tbl_tipo_categoria_imagen catTipo, tbl_categoria_imagen cat WHERE cat.CODIGO = catTipo.CODIGO_CATEGORIA AND cat.CODIGO = $codigo_categoria;");
             $registros = array();
 
-            foreach ($query_select as $value) 
+            while ($fila = mysqli_fetch_array($query_select)) 
             {
-                $registros [] = $value;
+                $registros [$fila['CODIGO']] = $fila['NOMBRE_TIPO'];
             }
-
             echo json_encode($registros);
             break;
 
         } else {
+
         
         }
+
+        /**
+         * Obtiene los registros de la tabla imagenes
+         */
+
+         if(isset($_GET['registrosImagenes']))
+         {
+            $query_select = mysqli_query($conect, "SELECT * FROM tbl_imagen;");
+            if (mysqli_num_rows($query_select) <= 0) 
+            {
+                $response = array('estado' => "sinRegistros");
+                die(json_encode($response));
+            } else {
+                $registros = array();
+                foreach ($query_select as $value) 
+                {
+                    $registros [] = $value;
+                }
+                echo json_encode($registros);
+            }
+         }
+
+
         
 
         ;

@@ -16,7 +16,6 @@ export default class Registros
                 return 0;
             } else {
             showCategoriasImagen(registros);            
-                
             }
 
         })
@@ -33,8 +32,13 @@ export default class Registros
                     <option value="${registro.CODIGO}">${registro.NOMBRE}</option>
             `;
         });
+
+        
             
         }
+
+
+             
     }
 
     /**
@@ -66,7 +70,6 @@ export default class Registros
 /**
  * Function que obtiene los registros de los tipo de categoria Imagen enviando como parametro un el codigo de una categoria
  */
-
 getRegistrosIdTipoCateImagen(codCategoria)
 {
     fetch(`../database/GetRegistros.db.php?getRegistroId=getRegistroId&codigo=${codCategoria}`)
@@ -88,4 +91,47 @@ getRegistrosIdTipoCateImagen(codCategoria)
     }
 
 }
+
+/**
+ * FUNCION QUE OBTIENE LOS REGISTROS DEL MANTENIMIENTO IMAGENES
+ */
+getRegistrosImagenes()
+{
+    fetch(`../database/GetRegistros.db.php?registrosImagenes=registrosImagenes`)
+    .then((response) => response.json())
+    .then((registros) => {
+        if (registros.estado === "sinRegistros") 
+        {
+            return 0;
+        } else {
+            showRegistrosImagenes(registros);
+        }
+    })
+
+    function showRegistrosImagenes(registros) 
+    {
+        document.getElementById("registros-Imagenes-web").innerHTML = "";
+        //iterar los registros
+        registros.forEach(registro => {
+        document.getElementById("registros-Imagenes-web").innerHTML += `
+            <tr>
+                <td class="text-center">${registro.CODIGO}</td>
+                <td class="text-center">${registro.TIPO_CATEGORIA_IMAGEN}</td>
+                <td class="text-center">${registro.DESCRIPCION}</td>
+                <td class="text-center">${registro.IMAGEN}</td>
+                <td class="text-center">${registro.OBSERVACIONES}</td>
+                <td class="text-center">${registro.ESTADO}</td>
+                <td class="text-center">${registro.CODIGO}        </td>
+            </tr>
+
+        `;
+        });
+        
+    }
+
+    
+}
+
+
+
 }

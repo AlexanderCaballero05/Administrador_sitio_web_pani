@@ -10,36 +10,33 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
     case 'GET':
-        if (isset($_GET['getRegistrosTiCatImagen'])) 
-        {
-            $getRegistrosTiCatImagen = mysqli_query($conect, "SELECT * FROM tbl_tipo_categoria_imagen;");
-            if (mysqli_num_rows($getRegistrosTiCatImagen) < 0)
-            {
-              $response = array('estado' => "SinRegistros");
-              die(json_encode($response));
-              break;
-            }else{
-               $registros = array();
-
-               //iterar los registros y pasarlos a formato Json
-               foreach ($getRegistrosTiCatImagen as $data) 
-               {
-                   $registros [] = $data;
-               }
-               echo json_encode($registros);
-               break;
-            }
-            break;
-
-            # code...
-        } else {
-            # code...
-        }
         
         # code...
         break;
-    
+        
         case 'POST':
-        # code...
+            if (isset($_GET['insert'])) 
+            {
+                $codigo_tipo = $_GET['codCategoria'];                
+                $descripcion = $_GET['descripcion'];
+                $imagen = $_GET['imagen'];
+                $observaciones = $_GET['observaciones'];
+                $estado= $_GET['estado'];
+
+                if ($observaciones == "") 
+                {
+                    $observaciones = "NINGUNA";
+                }
+
+                $query_insert = mysqli_query($conect, "INSERT INTO tbl_imagen (TIPO_CATEGORIA_IMAGEN, DESCRIPCION, IMAGEN, OBSERVACIONES, ESTADO) VALUES ('$codigo_tipo','$descripcion','$imagen','$observaciones','$estado')");
+                $response = array('estado' => "ingresado");
+                die(json_encode($response));
+
+            } else {
+                $response = array('estado' => "Noingresado");
+               die(json_encode($response));
+            }
+
+       
         break;
 }
