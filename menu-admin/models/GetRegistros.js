@@ -4,8 +4,9 @@
  */
 export default class Registros 
 {
+
     /**
-     * Funtion que obtiene todos los registros de la tabla categoria Imagen
+     * FUNCION QUE OBTIENE LOS REGISTROS DEL MANTENIMIENTO categoria Imagen
      */
     getCategoriasImagen() 
     {
@@ -25,72 +26,42 @@ export default class Registros
      */
     function showCategoriasImagen(registros)
         {
-        document.getElementById("codigoCat").innerHTML = "";
-        registros.forEach(registro => {
-            //Se asigna el codigo de la categoria
-            document.getElementById("codigoCat").innerHTML += `
-                    <option value="${registro.CODIGO}">${registro.NOMBRE}</option>
-            `;
-        });
-
-        
-            
-        }
-
-
-             
-    }
-
-    /**
-     * Funtion que obtiene todos los registros de la tabla categoria Tipo Categoria Imagen
-     */
-//     getRegistrosTipoCateImagen() 
-//     {
-//         fetch(`../database/crud_imagenesSite.db.php?getRegistrosTiCatImagen=getRegistrosTiCatImagen`)
-//         .then((response) => response.json())
-//         .then((registros) => {
-//             showRegistrosTipoCateImagen(registros);
-
-//         })
-
-//         function showRegistrosTipoCateImagen(registros)
-//         {
-//             document.getElementById("codigoTipoCat").innerHTML = "";
-//             //Iterar los registros
-//             registros.forEach(registro => {
-//                 document.getElementById("codigoTipoCat").innerHTML += `
-//                 <option value="${registro.CODIGO}">${registro.NOMBRE_TIPO}</option>
-//                 `;
-//             });
-//         }
-//     }
-
-// }
-
-/**
- * Function que obtiene los registros de los tipo de categoria Imagen enviando como parametro un el codigo de una categoria
- */
-getRegistrosIdTipoCateImagen(codCategoria)
-{
-    fetch(`../database/GetRegistros.db.php?getRegistroId=getRegistroId&codigo=${codCategoria}`)
-    .then((response) => response.json())
-    .then((registros) => {
-        showRegistrosIdTipoCateImagen(registros);
-    })
-
-    function  showRegistrosIdTipoCateImagen(registros)
-    {
-        document.getElementById("codigoTipoCat").innerHTML = "";
-            //Iterar los registros
+            document.getElementById("codigoCat").innerHTML = "";
             registros.forEach(registro => {
-                document.getElementById("codigoTipoCat").innerHTML += `
-                <option value="${registro.CODIGO}">${registro.NOMBRE_TIPO}</option>
+                //Se asigna el codigo de la categoria
+                document.getElementById("codigoCat").innerHTML += `
+                        <option value="${registro.CODIGO}">${registro.NOMBRE}</option>
                 `;
             });
+        }
+    }
+
+
+    /**
+     * Function que obtiene los registros de los tipo de categoria Imagen enviando como parametro un el codigo de una categoria
+     */
+    getRegistrosIdTipoCateImagen(codCategoria)
+    {
+        fetch(`../database/GetRegistros.db.php?getRegistroId=getRegistroId&codigo=${codCategoria}`)
+        .then((response) => response.json())
+        .then((registros) => {
+            showRegistrosIdTipoCateImagen(registros);
+        })
+
+        function  showRegistrosIdTipoCateImagen(registros)
+        {
+            document.getElementById("codigoTipoCat").innerHTML = "";
+                //Iterar los registros
+                registros.forEach(registro => {
+                    document.getElementById("codigoTipoCat").innerHTML += `
+                    <option value="${registro.CODIGO}">${registro.NOMBRE_TIPO}</option>
+                    `;
+                });
+
+        }
 
     }
 
-}
 
 /**
  * FUNCION QUE OBTIENE LOS REGISTROS DEL MANTENIMIENTO IMAGENES
@@ -132,6 +103,100 @@ getRegistrosImagenes()
     
 }
 
+/**
+ * FUNCION QUE OBTIENE LOS REGISTROS DEL MANTENIMIENTO tipo de datos
+ */
 
+
+getRegistrosTipoDeDatos()
+{
+    fetch(`../database/GetRegistros.db.php?registrosTipoDatos=registrosTipoDatos`)
+    .then((response) => response.json())
+    .then((registros) => {
+        if (registros.estado === "sinRegistros") 
+        {
+            return 0;
+        } else {
+            showRegistrosTipoDeDatos(registros);
+        }
+        showRegistrosTipoDeDatosSelect(registros);
+    })
+
+    function showRegistrosTipoDeDatos(registros) 
+    {
+
+       document.getElementById("registros-tipo-dato").innerHTML = "";
+        registros.forEach(registro => {
+            document.getElementById("registros-tipo-dato").innerHTML += `
+                <tr>
+                    <td class="text-center">${registro.CODIGO}</td>
+                    <td class="text-center">${registro.NOMBRE}</td>
+                    <td class="text-center">${registro.DESCRIPCION}</td>
+                    <td class="text-center">${registro.CODIGO}</td>
+                </tr>
+            `
+        });
+    }
+
+   
+}
+/**
+ * Function que obtiene los registros de los tipo de datos para un select
+ */
+
+getRegistrosTipoDeDatosForSelect()
+{
+    fetch(`../database/GetRegistros.db.php?registrosTipoDatos=registrosTipoDatos`)
+    .then((response) => response.json())
+    .then((registros) => {
+        if (registros.estado === "sinRegistros") 
+        {
+            return 0;
+        } else {
+             showRegistrosTipoDeDatosSelect(registros);
+        }
+  
+
+    })
+    function showRegistrosTipoDeDatosSelect(registros) 
+    {
+
+       document.getElementById("tipoDato").innerHTML = "";
+        registros.forEach(registro => {
+            document.getElementById("tipoDato").innerHTML += `
+            <option value="${registro.CODIGO}">${registro.NOMBRE}</option>
+            `
+        });
+    }
+}
 
 }
+
+
+
+
+    /**
+     * Funtion que obtiene todos los registros de la tabla categoria Tipo Categoria Imagen
+     */
+//     getRegistrosTipoCateImagen() 
+//     {
+//         fetch(`../database/crud_imagenesSite.db.php?getRegistrosTiCatImagen=getRegistrosTiCatImagen`)
+//         .then((response) => response.json())
+//         .then((registros) => {
+//             showRegistrosTipoCateImagen(registros);
+
+//         })
+
+//         function showRegistrosTipoCateImagen(registros)
+//         {
+//             document.getElementById("codigoTipoCat").innerHTML = "";
+//             //Iterar los registros
+//             registros.forEach(registro => {
+//                 document.getElementById("codigoTipoCat").innerHTML += `
+//                 <option value="${registro.CODIGO}">${registro.NOMBRE_TIPO}</option>
+//                 `;
+//             });
+//         }
+//     }
+
+// }

@@ -21,7 +21,11 @@
  /**
   * Mostrar modal para agregar un registro de una imagen
   */
-  document.getElementById("agregue").onclick = function() {mostrarModalAgregarImagen()};
+  document.getElementById("agregue").onclick = function() 
+  {
+    mostrarModalAgregarImagen()
+  };
+  
   function mostrarModalAgregarImagen()
   {
     $("#modal-agregar-imagen").modal("show");    
@@ -70,7 +74,7 @@
         return 0;
       }else{
                 //ingresar los datos
-                fetch(`../database/crud_imagenesSite.db.php?insert=insert&codCategoria=${codigo_tipo_categoria}&descripcion=${descripcion}&imagen=${imagenSitio}&observaciones=${observaciones}&estado=${estado}`,{
+                fetch(`../database/crud_imagenesSite.db.php?insert=insert&codCategoria=${codigo_tipo_categoria}&descripcion=${descripcion}&imagenSitio=${imagenSitio}&observaciones=${observaciones}&estado=${estado}`,{
                   method: "POST",
                   body: JSON.stringify({codigo_tipo_categoria, descripcion, imagenSitio, observaciones, estado}),
                   headers: {

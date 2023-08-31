@@ -11,7 +11,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 switch ($method) {
     case 'GET':
         /**
-         * Obtenere registros por Id tabla tipo categoria imagen
+         * Obtiene registros por Id tabla tipo categoria imagen
          */
         if (isset($_GET['getRegistroId'])) 
         {
@@ -26,10 +26,7 @@ switch ($method) {
             echo json_encode($registros);
             break;
 
-        } else {
-
-        
-        }
+        } 
 
         /**
          * Obtiene los registros de la tabla imagenes
@@ -52,8 +49,23 @@ switch ($method) {
             }
          }
 
+         /**
+          * Obtiene los registros de la tabla tipo de datos
+          */
 
-        
+          if (isset($_GET['registrosTipoDatos'])) {
+            $query_select = mysqli_query($conect, "SELECT * FROM tbl_tipo_de_dato");
+            if (mysqli_num_rows($query_select) <= 0) {
+                $response = array('estado' => "sinRegistros");
+                die(json_encode($response));
+            } else {
+                $registros = array();
+                foreach ($query_select as $value){
+                    $registros [] = $value;
+                }
+                echo json_encode($registros);
+            }
+         }
 
         ;
         break;

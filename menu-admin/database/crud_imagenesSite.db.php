@@ -15,11 +15,12 @@ switch ($method) {
         break;
         
         case 'POST':
+            //codigo para guardar una imagen con todos los valores correspondientes
             if (isset($_GET['insert'])) 
             {
                 $codigo_tipo = $_GET['codCategoria'];                
                 $descripcion = $_GET['descripcion'];
-                $imagen = $_GET['imagen'];
+                $imagen = $_GET['imagenSitio'];
                 $observaciones = $_GET['observaciones'];
                 $estado= $_GET['estado'];
 
@@ -36,7 +37,5 @@ switch ($method) {
                 $response = array('estado' => "Noingresado");
                die(json_encode($response));
             }
-
-       
         break;
 }

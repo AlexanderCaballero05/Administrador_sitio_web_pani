@@ -45,7 +45,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
                 <div class="modal-body">
-                    <form action="" id="form-agregar-imagen">
+                    <form action="" id="form-agregar-imagen" enctype="multipart/form-data"  method="POST">
                         <div class="row mb-5">
                             <div class="col-sm-6 selector-categoria">
                                 <label>Categoria Imagen</label>
