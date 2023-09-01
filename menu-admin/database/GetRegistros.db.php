@@ -11,7 +11,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 switch ($method) {
     case 'GET':
         /**
-         * Obtiene registros por Id tabla tipo categoria imagen
+         * Obtiene registros por Id tabla tipo categoria imagen realizando un JOIN
          */
         if (isset($_GET['getRegistroId'])) 
         {
@@ -66,6 +66,44 @@ switch ($method) {
                 echo json_encode($registros);
             }
          }
+
+          /**
+          * Obtiene los registros de la tabla datos de empresa realizando un JOIN
+          */
+
+          if (isset($_GET['registrosDatosEmpresa'])) {
+            $query_select = mysqli_query($conect, "SELECT * FROM tbl_tipo_de_dato ttda, tbl_empresa temp WHERE ttda.CODIGO = temp.CODIGO;");
+            if (mysqli_num_rows($query_select) <= 0) {
+                $response = array('estado' => "sinRegistros");
+                die(json_encode($response));
+            } else {
+                $registros = array();
+                foreach ($query_select as $value){
+                    $registros [] = $value;
+                }
+                echo json_encode($registros);
+            }
+         }
+
+         /**
+          * Obtiene los registros de la tabla profesion
+          */
+
+          if (isset($_GET['registrosDatosProfesion'])) {
+            $query_select = mysqli_query($conect, "SELECT * FROM tbl_profesion;");
+            if (mysqli_num_rows($query_select) <= 0) {
+                $response = array('estado' => "sinRegistros");
+                die(json_encode($response));
+            } else {
+                $registros = array();
+                foreach ($query_select as $value){
+                    $registros [] = $value;
+                }
+                echo json_encode($registros);
+            }
+         }
+
+
 
         ;
         break;

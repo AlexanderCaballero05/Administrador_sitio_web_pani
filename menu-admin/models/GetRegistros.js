@@ -119,7 +119,6 @@ getRegistrosTipoDeDatos()
         } else {
             showRegistrosTipoDeDatos(registros);
         }
-        showRegistrosTipoDeDatosSelect(registros);
     })
 
     function showRegistrosTipoDeDatos(registros) 
@@ -170,7 +169,77 @@ getRegistrosTipoDeDatosForSelect()
     }
 }
 
+
+
+/**
+ * FUNCION QUE OBTIENE LOS REGISTROS DEL MANTENIMIENTO tipo de datos
+ */
+
+
+getRegistrosDatosEmpresa()
+{
+    fetch(`../database/GetRegistros.db.php?registrosDatosEmpresa=registrosDatosEmpresa`)
+    .then((response) => response.json())
+    .then((registros) => {
+        if (registros.estado === "sinRegistros") 
+        {
+            return 0;
+        } else {
+            showRegistrosDatosEmpresa(registros);
+        }
+    })
+
+    function showRegistrosDatosEmpresa(registros)
+    {
+
+       document.getElementById("registros-dato-empresa").innerHTML = "";
+        registros.forEach(registro => {
+            document.getElementById("registros-dato-empresa").innerHTML += `
+                <tr>
+                    <td class="text-center">${registro.CODIGO}</td>
+                    <td class="text-center">${registro.NOMBRE}</td>
+                    <td class="text-center">${registro.CONTENIDO}</td>
+                    <td class="text-center">${registro.CODIGO}</td>
+                </tr>
+            `
+        });
+    }
 }
+
+
+getRegistrosDatosProfesion()
+{
+    fetch(`../database/GetRegistros.db.php?registrosDatosProfesion=registrosDatosProfesion`)
+    .then((response) => response.json())
+    .then((registros) => {
+        if (registros.estado === "sinRegistros") 
+        {
+            return 0;
+        } else {
+            showRegistrosDatosProfesion(registros);
+        }
+    })
+
+    function showRegistrosDatosProfesion(registros)
+    {
+
+       document.getElementById("registros-dato-profesion").innerHTML = "";
+        registros.forEach(registro => {
+            document.getElementById("registros-dato-profesion").innerHTML += `
+                <tr>
+                    <td class="text-center">${registro.CODIGO}</td>
+                    <td class="text-center">${registro.NOMBRE}</td>
+                    <td class="text-center">${registro.DESCRIPCION}</td>
+                    <td class="text-center">${registro.ESTADO}</td>
+                </tr>
+            `
+        });
+    }
+}
+
+
+
+}//final de la clase
 
 
 

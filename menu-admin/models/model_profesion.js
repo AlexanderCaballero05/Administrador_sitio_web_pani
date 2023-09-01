@@ -1,55 +1,53 @@
 /**************************************************************************************************************************************************************
- ************************************************************CODIGO PARA AGREGAR UN TIPO DE DATO**********************************************************
- **************************************************************************************************************************************************************/
- /**
+ ************************************************************CODIGO PARA AGREGAR UN DATO PROFESION**********************************************************
+ ***************************************************************************************************************************************************************/
+/**
   * Importar la clase de Registros
   */
- import Registros from "./GetRegistros.js";
- let registros = new Registros;
+import Registros from "./GetRegistros.js";
+let registros = new Registros;
 
- registros.getRegistrosDatosEmpresa();
+registros.getRegistrosDatosProfesion();
 
-
- /**
- * Mostrar modal para agregar un registro de un dato de empresa
- */
+/**
+* Mostrar modal para agregar un registro de una profesion   
+*/
 
 document.getElementById("agregarRegistro").onclick = function () {//funcion onclick boton agregar
-    mostrarModalAgregarDatoEmpresa();
+    mostrarModalAgregarDatoProfesion();
 }
 
-function mostrarModalAgregarDatoEmpresa()
-{
-    $("#modal-agregar-dato-empresa").modal("show");
-    agregarDatosEmpresa();
-    registros.getRegistrosTipoDeDatosForSelect();
+function mostrarModalAgregarDatoProfesion(){
+    $("#modal-agregar-dato-profesion").modal("show");
+    agregarDatosProfesion();
+    
 }
 
-function agregarDatosEmpresa() 
+function agregarDatosProfesion() 
 {
-    let formulario = document.getElementById("form-agregar-dato-empresa");
-
+    let formulario = document.getElementById("form-agregar-dato-profesion");
     formulario.addEventListener('submit', function(event) 
     {
         event.preventDefault();
-        let datos = new FormData(formulario);
-        let tipo_dato = datos.get('tipoDato');
-        let contenido = datos.get('descripcionDato');
+        let  datos = new FormData(formulario);
 
-        if (tipo_dato == "" || contenido == "") 
+        let nombre = datos.get('nombreprofe');
+        let descripcion = datos.get('descripcionprofe');
+        let estado = datos.get('estadoprofe');
+        
+        if (nombre == "" || descripcion == "" || estado == "") 
         {
             swal.fire({
                icon: 'warning',
                title: 'Se requieren los campos',
                text: 'Complete la información dentro de los campos'
-            });
-            return null;
+            })
             
         } else {
             //ingresar los datos
-            fetch(`../database/crud_datosEmpresa.php?insert=insert&tipoDato=${tipo_dato}&contenido=${contenido}`,{
+            fetch(`../database/crud_profesion.php?insert=insert&nombre=${nombre}&descripcion=${descripcion}&estado=${estado}`,{
                 method: 'POST',
-                body: JSON.stringify({tipo_dato, contenido}),
+                body: JSON.stringify({nombre,descripcion,estado}),
                 headers: {
                     "content-Type": "application/json",
                 },
@@ -76,14 +74,5 @@ function agregarDatosEmpresa()
             })
         }
     });
-}
 
-function limpiarModalAgregar(){
-//limpiar modal
-let formulario = document.getElementById('form-agregar-dato-empresa');
-formulario.reset();
-//Cerrar modal
-$('#0modal-agregar-dato-empresa').modal('hide')
-registros.getRegistrosDatosEmpresa();
 }
-form-agregar-categoria

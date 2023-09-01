@@ -89,6 +89,7 @@ if($_SESSION["s_usuario"] === null){
             <a class="collapse-item" href="index_imagenesSite.php">Imagenes Web</a>
             <a class="collapse-item" href="index_tipoDeDato.php">Tipo de Datos</a>
             <a class="collapse-item" href="index_datosEmpresa.php">Datos de Empresa</a>
+            <a class="collapse-item" href="index_profesion.php">Datos Profesión</a>
           </div>
         </div>
       </li>

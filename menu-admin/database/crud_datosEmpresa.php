@@ -6,28 +6,25 @@ header('Content-Type: application/json');
 
 // Leer la solicitud HTTP y determinar el tipo de operacion
 $method = $_SERVER['REQUEST_METHOD'];
-//echo $method;
 
 switch ($method) {
     case 'GET':
         # code...
         break;
     case 'POST':
-        //codigo para ingresar un tipo de dato
+        //codigo para ingresar un dato de empres
         if (isset($_GET['insert'])) 
         {
-            $nombre = $_GET['nombre'];
-            $descripcion = $_GET['descripcion'];
-
-            $query_insert = mysqli_query($conect, "INSERT INTO tbl_tipo_de_dato(NOMBRE, DESCRIPCION) VALUES ('$nombre', '$descripcion');");
+            $tipo_dato = $_GET['tipoDato'];
+            $contenido = $_GET['contenido'];
+            //insert 
+            $query_insert = mysqli_query($conect, "INSERT INTO tbl_empresa (CODIGO_TIPO_DATO, CONTENIDO) VALUES ('$tipo_dato','$contenido');");
             $response = array('estado' => "ingresado");
             die(json_encode($response));
         } else {
             $response = array('estado' => "Noingresado");
             die(json_encode($response));
         }
-        break;
-    default:
-        # code...
+        
         break;
 }

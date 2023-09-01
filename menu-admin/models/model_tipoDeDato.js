@@ -48,7 +48,7 @@ function agregarTipoDato()
             swal.fire({
                icon: 'warning',
                title: 'Se requieren los campos',
-               text: 'Complete la información requerida dentro de los campos'
+               text: 'Complete la información dentro de los campos'
             })
             return 0;
             
