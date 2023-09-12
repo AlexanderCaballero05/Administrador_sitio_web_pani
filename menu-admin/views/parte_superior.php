@@ -84,12 +84,13 @@ if($_SESSION["s_usuario"] === null){
         <!--<a class="collapse-item" href="index_categoriaImagen.php">Categoria Imagen</a>-->
             <!-- <a class="collapse-item" href="../index.php">Tipo de dato</a> -->
             <!-- <a class="collapse-item" href="../index_empresa.php">Empresa</a> -->
-            <a class="collapse-item" href="index_categoriaImagen.php">Categoria Imagen</a>
-            <a class="collapse-item" href="index_tipoCategoriaImagen.php">Tipo Categoria Imagen</a>
-            <a class="collapse-item" href="index_imagenesSite.php">Imagenes Web</a>
+            <a class="collapse-item" href="index_categoriaImagen.php">Datos Categoria Imagen</a>
+            <a class="collapse-item" href="index_tipoCategoriaImagen.php">Datos Tipo Categoria Imagen</a>
+            <a class="collapse-item" href="index_imagenesSite.php">Datos Imagenes Web</a>
             <a class="collapse-item" href="index_tipoDeDato.php">Tipo de Datos</a>
             <a class="collapse-item" href="index_datosEmpresa.php">Datos de Empresa</a>
             <a class="collapse-item" href="index_profesion.php">Datos Profesión</a>
+            <a class="collapse-item" href="index_autoridad.php">Datos Autoridad</a>
           </div>
         </div>
       </li>

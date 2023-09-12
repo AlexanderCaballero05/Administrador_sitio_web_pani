@@ -38,7 +38,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-               <h2 class="modal-title fs-5" id="exampleModalLabel">Agregar Dato de profesión</h2>
+               <h2 class="modal-title fs-5" id="exampleModalLabel">Agregar Datos de profesión</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">

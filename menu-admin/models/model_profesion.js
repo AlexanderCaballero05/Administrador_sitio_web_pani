@@ -35,7 +35,7 @@ function agregarDatosProfesion()
         let descripcion = datos.get('descripcionprofe');
         let estado = datos.get('estadoprofe');
         
-        if (nombre == "" || descripcion == "" || estado == "") 
+        if (nombre == "" || descripcion == "" || estado == null) 
         {
             swal.fire({
                icon: 'warning',
@@ -44,7 +44,7 @@ function agregarDatosProfesion()
             })
             
         } else {
-            //ingresar los datos
+          //  ingresar los datos
             fetch(`../database/crud_profesion.php?insert=insert&nombre=${nombre}&descripcion=${descripcion}&estado=${estado}`,{
                 method: 'POST',
                 body: JSON.stringify({nombre,descripcion,estado}),
@@ -74,5 +74,13 @@ function agregarDatosProfesion()
             })
         }
     });
+}
 
+function limpiarModalAgregar(){
+//limpiar modal
+let formulario = document.getElementById('form-agregar-dato-profesion');
+formulario.reset();
+//Cerrar modal
+$('#modal-agregar-dato-profesion').modal('hide')
+registros.getRegistrosDatosProfesion();
 }
