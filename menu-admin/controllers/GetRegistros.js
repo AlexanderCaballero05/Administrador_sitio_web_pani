@@ -10,7 +10,7 @@ export default class Registros
      */
     getCategoriasImagen() 
     {
-        fetch(`../database/crud_tipoCateImagen.db.php?getCatImagen=getCatImagen`)
+        fetch(`../models/crud_tipoCateImagen.db.php?getCatImagen=getCatImagen`)
         .then((response) => response.json())
         .then((registros) => {
             if (registros.estado === "SinRegistros") {
@@ -42,7 +42,7 @@ export default class Registros
      */
     getRegistrosIdTipoCateImagen(codCategoria)
     {
-        fetch(`../database/GetRegistros.db.php?getRegistroId=getRegistroId&codigo=${codCategoria}`)
+        fetch(`../models/GetRegistros.db.php?getRegistroId=getRegistroId&codigo=${codCategoria}`)
         .then((response) => response.json())
         .then((registros) => {
             showRegistrosIdTipoCateImagen(registros);
@@ -68,7 +68,7 @@ export default class Registros
  */
 getRegistrosImagenes()
 {
-    fetch(`../database/GetRegistros.db.php?registrosImagenes=registrosImagenes`)
+    fetch(`../models/GetRegistros.db.php?registrosImagenes=registrosImagenes`)
     .then((response) => response.json())
     .then((registros) => {
         if (registros.estado === "sinRegistros") 
@@ -110,7 +110,7 @@ getRegistrosImagenes()
 
 getRegistrosTipoDeDatos()
 {
-    fetch(`../database/GetRegistros.db.php?registrosTipoDatos=registrosTipoDatos`)
+    fetch(`../models/GetRegistros.db.php?registrosTipoDatos=registrosTipoDatos`)
     .then((response) => response.json())
     .then((registros) => {
         if (registros.estado === "sinRegistros") 
@@ -145,7 +145,7 @@ getRegistrosTipoDeDatos()
 
 getRegistrosTipoDeDatosForSelect()
 {
-    fetch(`../database/GetRegistros.db.php?registrosTipoDatos=registrosTipoDatos`)
+    fetch(`../models/GetRegistros.db.php?registrosTipoDatos=registrosTipoDatos`)
     .then((response) => response.json())
     .then((registros) => {
         if (registros.estado === "sinRegistros") 
@@ -178,7 +178,7 @@ getRegistrosTipoDeDatosForSelect()
 
 getRegistrosDatosEmpresa()
 {
-    fetch(`../database/GetRegistros.db.php?registrosDatosEmpresa=registrosDatosEmpresa`)
+    fetch(`../models/GetRegistros.db.php?registrosDatosEmpresa=registrosDatosEmpresa`)
     .then((response) => response.json())
     .then((registros) => {
         if (registros.estado === "sinRegistros") 
@@ -206,10 +206,13 @@ getRegistrosDatosEmpresa()
     }
 }
 
+/**
+ * FUNCION QUE OBTIENE LOS REGISTROS DEL MANTENIMIENTO DATOS PROFESION
+ */
 
 getRegistrosDatosProfesion()
 {
-    fetch(`../database/GetRegistros.db.php?registrosDatosProfesion=registrosDatosProfesion`)
+    fetch(`../models/GetRegistros.db.php?registrosDatosProfesion=registrosDatosProfesion`)
     .then((response) => response.json())
     .then((registros) => {
         if (registros.estado === "sinRegistros") 
@@ -237,7 +240,41 @@ getRegistrosDatosProfesion()
     }
 }
 
+/**
+ * FUNCION QUE OBTIENE LOS REGISTROS DEL MANTENIMIENTO DATOS CATEGORIA INSTITUCION
+ */
 
+getRegistrosDatosCategiriaInstitucion()
+{
+    
+    fetch(`../models/GetRegistros.db.php?registrosDatosCategoriaInstitucion=registrosDatosCategoriaInstitucion`)
+    .then((response) => response.json())
+    .then((registros) => {
+        if (registros.estado === "sinRegistros") 
+        {
+            return 0;
+        } else {
+            showRegistrosDatosCategoriaInstitucion(registros);
+        }
+    })
+
+    function showRegistrosDatosCategoriaInstitucion(registros)
+    {
+
+       document.getElementById("registros-dato-cate-institucion").innerHTML = "";
+        registros.forEach(registro => {
+            document.getElementById("registros-dato-cate-institucion").innerHTML += `
+                <tr>
+                    <td class="text-center">${registro.CODIGO}</td>
+                    <td class="text-center">${registro.NOMBRE_CATEGORIA}</td>
+                    <td class="text-center">${registro.DESCRIPCION}</td>
+                </tr>
+            `
+        });
+
+}
+
+}
 
 }//final de la clase
 
@@ -249,7 +286,7 @@ getRegistrosDatosProfesion()
      */
 //     getRegistrosTipoCateImagen() 
 //     {
-//         fetch(`../database/crud_imagenesSite.db.php?getRegistrosTiCatImagen=getRegistrosTiCatImagen`)
+//         fetch(`../models/crud_imagenesSite.db.php?getRegistrosTiCatImagen=getRegistrosTiCatImagen`)
 //         .then((response) => response.json())
 //         .then((registros) => {
 //             showRegistrosTipoCateImagen(registros);

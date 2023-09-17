@@ -10,7 +10,7 @@
 obtenerRegistrosCategoriaImagen();
 
 function obtenerRegistrosCategoriaImagen(){
-    fetch(`../database/crudCategoriaImagen.db.php`)
+    fetch(`../models/model_CategoriaImagen.db.php`)
     .then((response) => response.json())
     .then((registros) => {
 
@@ -57,7 +57,7 @@ function mostrarRegistrosCategoriaImagen(registros)
  {
     $("#modal-editar-categoria-imagen").modal("show");
     // document.getElementById("editarCodcategoria").value = CODIGO;
-    fetch(`../database/crudCategoriaImagen.db.php?editarModal=editarModal&CODIGO=${CODIGO}`)
+    fetch(`../models/model_CategoriaImagen.db.php?editarModal=editarModal&CODIGO=${CODIGO}`)
     .then((response) => response.json())
     .then((respuestaServer) => {
         document.getElementById("editarCodCategoria").value = respuestaServer[0].CODIGO;
@@ -116,7 +116,7 @@ function mostrarRegistrosCategoriaImagen(registros)
 
  function editarDatos(CodCategoriaEditar, NombreCategoria, TipoExt, EstadoEditar) 
  {
-    fetch(`../database/crudCategoriaImagen.db.php?Editardatos=Editardatos&cod=${CodCategoriaEditar}&nombre=${NombreCategoria}&tiExtencion=${TipoExt}&estado${EstadoEditar}`, {
+    fetch(`../models/model_CategoriaImagen.db.php?Editardatos=Editardatos&cod=${CodCategoriaEditar}&nombre=${NombreCategoria}&tiExtencion=${TipoExt}&estado${EstadoEditar}`, {
         method: "POST",
         body: JSON.stringify({CodCategoriaEditar, NombreCategoria, TipoExt, EstadoEditar}),
         headers: {
@@ -166,7 +166,7 @@ function mostrarRegistrosCategoriaImagen(registros)
  */
 //   function obtenerEstados()
 //      {
-//         fetch(`../database/crudCategoriaImagen.db.php?obtenerEstados=obtenerEstados`)
+//         fetch(`../models/model_CategoriaImagen.db.php?obtenerEstados=obtenerEstados`)
 //     .then((response) => response.json())
 //     .then((registrosEstado) => {
 //         mostrarEstados(registrosEstado);
@@ -242,7 +242,7 @@ function mostrarRegistrosCategoriaImagen(registros)
   function agregarDatos(nombre_categoria, TIPO_EXT, estado) 
   {
     // alert(nombre_categoria);
-    fetch(`../database/crudCategoriaImagen.db.php?noCategoria=${nombre_categoria}&tiExtencion=${TIPO_EXT}&estado${estado}`, {
+    fetch(`../models/model_CategoriaImagen.db.php?noCategoria=${nombre_categoria}&tiExtencion=${TIPO_EXT}&estado${estado}`, {
         method: "POST",
         body: JSON.stringify({nombre_categoria, TIPO_EXT, estado}),
         headers: {

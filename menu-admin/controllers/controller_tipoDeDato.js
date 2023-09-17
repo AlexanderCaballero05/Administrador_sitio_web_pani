@@ -54,7 +54,7 @@ function agregarTipoDato()
             
         } else {
             //ingresar los datos
-            fetch(`../database/crud_tipoDeDato.php?insert=insert&nombre=${nombre}&descripcion=${descripcion}`,{
+            fetch(`../models/model_tipoDeDato.php?insert=insert&nombre=${nombre}&descripcion=${descripcion}`,{
                 method: 'POST',
                 body: JSON.stringify({nombre, descripcion}),
                 headers: {

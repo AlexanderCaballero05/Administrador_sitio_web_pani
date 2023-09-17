@@ -47,7 +47,7 @@ function agregarDatosEmpresa()
             
         } else {
             //ingresar los datos
-            fetch(`../database/crud_datosEmpresa.php?insert=insert&tipoDato=${tipo_dato}&contenido=${contenido}`,{
+            fetch(`../models/model_datosEmpresa.php?insert=insert&tipoDato=${tipo_dato}&contenido=${contenido}`,{
                 method: 'POST',
                 body: JSON.stringify({tipo_dato, contenido}),
                 headers: {
@@ -86,4 +86,3 @@ formulario.reset();
 $('#0modal-agregar-dato-empresa').modal('hide')
 registros.getRegistrosDatosEmpresa();
 }
-form-agregar-categoria

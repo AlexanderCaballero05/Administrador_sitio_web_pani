@@ -64,6 +64,6 @@
 </div>
 
 
-<script type="module" src="../models/model_tipoDeDato.js"></script>
+<script type="module" src="../controllers/controller_tipoDeDato.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php require_once "parte_inferior.php"?>

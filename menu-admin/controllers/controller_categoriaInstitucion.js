@@ -1,53 +1,53 @@
 /**************************************************************************************************************************************************************
- ************************************************************CODIGO PARA AGREGAR UN DATO PROFESION**********************************************************
- ***************************************************************************************************************************************************************/
+ ************************************************************CODIGO PARA AGREGAR UN TIPO DE DATO**********************************************************
+ **************************************************************************************************************************************************************
+ */
 /**
   * Importar la clase de Registros
   */
 import Registros from "./GetRegistros.js";
 let registros = new Registros;
 
-registros.getRegistrosDatosProfesion();
+registros.getRegistrosDatosCategiriaInstitucion();
 
-/**
-* Mostrar modal para agregar un registro de una profesion   
-*/
+ /**
+ * Mostrar modal para agregar un registro de un dato de empresa
+ */
 
 document.getElementById("agregarRegistro").onclick = function () {//funcion onclick boton agregar
-    mostrarModalAgregarDatoProfesion();
+    mostrarModalAgregarDatoCategoriaInst()
 }
 
-function mostrarModalAgregarDatoProfesion(){
-    $("#modal-agregar-dato-profesion").modal("show");
-    agregarDatosProfesion();
-    
-}
-
-function agregarDatosProfesion() 
+function mostrarModalAgregarDatoCategoriaInst()
 {
-    let formulario = document.getElementById("form-agregar-dato-profesion");
-    formulario.addEventListener('submit', function(event) 
-    {
-        event.preventDefault();
-        let  datos = new FormData(formulario);
+    $("#modal-agregar-dato-cate-institucion").modal("show");
+    agregarDatosCategoriaInstitucion();
+}
 
-        let nombre = datos.get('nombreprofe');
-        let descripcion = datos.get('descripcionprofe');
-        let estado = datos.get('estadoprofe');
-        
-        if (nombre == "" || descripcion == "" || estado == null) 
+function agregarDatosCategoriaInstitucion()
+{
+    let formulario = document.getElementById("form-agregar-cate-institucion");
+    
+
+    formulario.addEventListener('submit', function(event){
+        event.preventDefault();
+        let datos = new FormData(formulario);
+
+        let nombre = datos.get('nombreCate');
+        let descripcionCate = datos.get('descripcionCate');
+
+        if (nombre == "" || descripcionCate == "") 
         {
             swal.fire({
                icon: 'warning',
                title: 'Se requieren los campos',
                text: 'Complete la información dentro de los campos'
-            })
-            
+            });
+            return null;
         } else {
-          //  ingresar los datos
-            fetch(`../database/crud_profesion.php?insert=insert&nombre=${nombre}&descripcion=${descripcion}&estado=${estado}`,{
+            fetch(`../models/model_categoriaInstitucion.db.php?insert=insert&nombre=${nombre}&descripcion=${descripcionCate}`, {
                 method: 'POST',
-                body: JSON.stringify({nombre,descripcion,estado}),
+                body: JSON.stringify({nombre, descripcionCate}),
                 headers: {
                     "content-Type": "application/json",
                 },
@@ -73,14 +73,18 @@ function agregarDatosProfesion()
                 }    
             })
         }
-    });
+
+    })
 }
+
 
 function limpiarModalAgregar(){
 //limpiar modal
-let formulario = document.getElementById('form-agregar-dato-profesion');
+let formulario = document.getElementById('form-agregar-cate-institucion');
 formulario.reset();
 //Cerrar modal
-$('#modal-agregar-dato-profesion').modal('hide')
-registros.getRegistrosDatosProfesion();
+$('#modal-agregar-dato-cate-institucion').modal('hide')
+registros.getRegistrosDatosCategiriaInstitucion();
+
 }
+

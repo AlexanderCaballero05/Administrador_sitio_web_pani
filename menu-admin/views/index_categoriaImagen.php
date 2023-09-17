@@ -141,7 +141,7 @@
         }
     </script>
 
-    <script src="../models/categoriaImagen.js"></script>
+    <script src="../controllers/controller_categoriaImagen.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <?php require_once "parte_inferior.php"?>

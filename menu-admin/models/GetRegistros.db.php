@@ -103,6 +103,24 @@ switch ($method) {
             }
          }
 
+         /**
+          * Obtiene los registros de la tabla categoria Institucion
+          */
+
+          if (isset($_GET['registrosDatosCategoriaInstitucion'])) {
+            $query_select = mysqli_query($conect, "SELECT * FROM tbl_categoria_institucion;");
+            if (mysqli_num_rows($query_select) <= 0) {
+                $response = array('estado' => "sinRegistros");
+                die(json_encode($response));
+            } else {
+                $registros = array();
+                foreach ($query_select as $value){
+                    $registros [] = $value;
+                }
+                echo json_encode($registros);
+            }
+         }
+
 
 
         ;

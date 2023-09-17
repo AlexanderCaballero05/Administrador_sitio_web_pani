@@ -37,7 +37,7 @@
     $(document).ready(function() {
         $(".selector-categoria select").change(function() {
         $(".selector-tipo select").empty();
-        $.getJSON('../database/GetRegistros.db.php?getRegistroId=getRegistroId&codigo='+$(".selector-categoria select").val(),function(data){
+        $.getJSON('../models/GetRegistros.db.php?getRegistroId=getRegistroId&codigo='+$(".selector-categoria select").val(),function(data){
             $.each(data, function(CODIGO,value){
           $(".selector-tipo select").append('<option value="'+CODIGO+'">'+value+'</option>');
             });
@@ -74,7 +74,7 @@
         return 0;
       }else{
                 //ingresar los datos
-                fetch(`../database/crud_imagenesSite.db.php?insert=insert&codCategoria=${codigo_tipo_categoria}&descripcion=${descripcion}&imagenSitio=${imagenSitio}&observaciones=${observaciones}&estado=${estado}`,{
+                fetch(`../models/model_imagenesSite.db.php?insert=insert&codCategoria=${codigo_tipo_categoria}&descripcion=${descripcion}&imagenSitio=${imagenSitio}&observaciones=${observaciones}&estado=${estado}`,{
                   method: "POST",
                   body: JSON.stringify({codigo_tipo_categoria, descripcion, imagenSitio, observaciones, estado}),
                   headers: {

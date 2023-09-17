@@ -5,7 +5,7 @@
  GetRegistrosTipoCategoria();
 function GetRegistrosTipoCategoria() 
 {
-    fetch(`../database/crud_tipoCateImagen.db.php?getTipoCatImagen=getTipoCatImagen`)
+    fetch(`../models/model_tipoCateImagen.db.php?getTipoCatImagen=getTipoCatImagen`)
     .then((response) => response.json())
     .then((registros) => {
         showTiposCategoriasImagen(registros);            
@@ -50,7 +50,7 @@ function mostrarModalAgregar()
  */
 function getCategoriasImagen() 
 {
-    fetch(`../database/crud_tipoCateImagen.db.php?getCatImagen=getCatImagen`)
+    fetch(`../models/model_tipoCateImagen.db.php?getCatImagen=getCatImagen`)
     .then((response) => response.json())
     .then((registros) => {
         if (registros.estado === "SinRegistros") {
@@ -104,7 +104,7 @@ function agregarDatos()
           return 0;
        }
        //enviar los datos al servidor y esperar una respuesta
-       fetch(`../database/crud_tipoCateImagen.db.php?insert=insert&codigo=${CodCategoria}&tipo=${tipoCategoria}&estado=${estado}&observaciones=${observaciones}`, {
+       fetch(`../models/model_tipoCateImagen.db.php?insert=insert&codigo=${CodCategoria}&tipo=${tipoCategoria}&estado=${estado}&observaciones=${observaciones}`, {
         method: "POST",
         body: JSON.stringify({CodCategoria, tipoCategoria, estado, observaciones}),
         headers: {

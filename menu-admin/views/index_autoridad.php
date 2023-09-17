@@ -93,6 +93,6 @@
 </div>
 
 
-<script type="module" src="../models/model_autoridad.js"></script>
+<script type="module" src="../controllers/controller_autoridad.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php require_once "parte_inferior.php"?>

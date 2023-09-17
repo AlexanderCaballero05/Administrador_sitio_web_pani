@@ -99,7 +99,7 @@
         }
     </script>
 
-    <script src="../models/model_tipoCategoriaImagen.js"></script>
+    <script src="../controllers/controller_tipoCategoriaImagen.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <?php require_once "parte_inferior.php"?>
