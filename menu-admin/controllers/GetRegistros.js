@@ -276,6 +276,37 @@ getRegistrosDatosCategiriaInstitucion()
 
 }
 
+
+getRegistrosDatosTipoCategoriaInstitucion()
+{
+    fetch(`../models/GetRegistros.db.php?registrosDatosTipoCategoriaInstitucion=registrosDatosTipoCategoriaInstitucion`)
+    .then((response) => response.json())
+    .then((registros) => {
+        if (registros.estado === "sinRegistros") 
+        {
+            return 0;
+        } else {
+            showRegistrosTipoDatosCategoriaInstitucion(registros);
+        }
+    })
+
+   function showRegistrosTipoDatosCategoriaInstitucion(registros)
+    {
+        document.getElementById("registros-dato-tipo-cate-institucion").innerHTML = "";
+        registros.forEach(registro => {
+            document.getElementById("registros-dato-tipo-cate-institucion").innerHTML += `
+                <tr>
+                    <td class="text-center">${registro.CODIGO}</td>
+                    <td class="text-center">${registro.NOMBRE_CATEGORIA}</td>
+                    <td class="text-center">${registro.NOMBRE_TIPO}</td>
+                    <td class="text-center">${registro.DESCRIPCION}</td>
+                    <td class="text-center">${registro.ESTADO}</td>
+                </tr>
+            `
+        });
+    }
+}
+
 }//final de la clase
 
 

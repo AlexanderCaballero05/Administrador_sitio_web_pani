@@ -8,6 +8,8 @@
 import Registros from "./GetRegistros.js";
 let registros = new Registros;
 
+registros.getRegistrosDatosTipoCategoriaInstitucion();
+
  /**
  * Mostrar modal para agregar un registro de un dato de empresa
  */
@@ -20,6 +22,7 @@ function mostrarModalAgregarDatoTipoCategoriaInstitucion()
 {
     $("#modal-agregar-dato-tipo-institucion").modal("show");
     getRegistrosDatosCategoriaInstitucionForSelect();
+    AgregarDatoTipoCategoriaInstitucion();
 
 }
 
@@ -53,5 +56,76 @@ function getRegistrosDatosCategoriaInstitucionForSelect()
         });
 
 }
+
+}
+
+/**
+ * Funcion que agrega un tipo de categoria Institución
+ */
+
+function AgregarDatoTipoCategoriaInstitucion() 
+{
+
+     //Validacion de entrada de datos y envio al servidor
+
+     let formulario = document.getElementById("form-agregar-tipo-cate-institucion");
+     formulario.addEventListener('submit', function (event) 
+     {
+        event.preventDefault();
+        //captura de datos
+        let datos = new FormData(formulario);
+        let categoria = datos.get('cateInstitucion');
+        let nombre = datos.get('NombreTipo');
+        let Observaciones = datos.get('Observaciones');
+        let estado = datos.get('estadoTipoCate');
+        
+        if (categoria == null || nombre == "" || estado == null) 
+        {
+            swal.fire({
+               icon: 'warning',
+               title: 'Se requieren los campos',
+               text: 'Complete la información dentro de los campos'
+            });
+            
+        } else {
+            fetch(`../models/model_tipoCateInstitucion.php?insert=insert&idcategoria=${categoria}&nombreTipo=${nombre}&observaciones=${Observaciones}&estado=${estado}`,{
+                method: "POST",
+                body: JSON.stringify({categoria, nombre, Observaciones, estado}),
+                headers: {
+                    "content-Type": "application/json",
+                },
+            })
+            .then((response) => response.json())
+            .then((respuestaServer) => {
+                if (respuestaServer.estado === "ingresado") 
+                {
+                    swal.fire({
+                       icon: 'success',
+                       title: 'Solicitud Exitosa',
+                       text: 'El registro se inserto correctamente'
+                    })
+                    limpiarModalAgregar();
+                } else if(respuestaServer.estado === "Noingresado") 
+                {
+                    swal.fire({
+                       icon: 'error',
+                       title: 'Solicitud fallida',
+                       text: 'Error al ingresar el registro'
+                    })
+                    limpiarModalAgregar();
+                }    
+            })
+        }
+     })
+    
+}
+
+function limpiarModalAgregar(){
+//limpiar modal
+let formulario = document.getElementById('form-agregar-tipo-cate-institucion');
+formulario.reset();
+//Cerrar modal
+$('#modal-agregar-dato-tipo-institucion').modal('hide')
+registros.getRegistrosDatosTipoCategoriaInstitucion();
 
 }

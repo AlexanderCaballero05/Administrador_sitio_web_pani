@@ -15,7 +15,7 @@ switch ($method)
     case 'POST':
         if (isset($_GET['insert'])) 
         {
-            $categoria = $_GET['categoria'];
+            $categoria = $_GET['idcategoria'];
             $nombreTipo = $_GET['nombreTipo'];
             $observaciones = $_GET['observaciones'];
             $estado = $_GET['estado'];

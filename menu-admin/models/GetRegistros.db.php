@@ -121,6 +121,24 @@ switch ($method) {
             }
          }
 
+         /**
+          * Obtiene los registros de la tabla Tipo categoria Institucion
+          */
+
+          if (isset($_GET['registrosDatosTipoCategoriaInstitucion'])) {
+            $query_select = mysqli_query($conect, "SELECT ttca.CODIGO, tca.NOMBRE_CATEGORIA, ttca.NOMBRE_TIPO, ttca.DESCRIPCION, ttca.ESTADO FROM tbl_categoria_institucion tca, tbl_tipo_categoria_institucion ttca Where tca.CODIGO = ttca.CODIGO_CATEGORIA;");
+            if (mysqli_num_rows($query_select) <= 0) {
+                $response = array('estado' => "sinRegistros");
+                die(json_encode($response));
+            } else {
+                $registros = array();
+                foreach ($query_select as $value){
+                    $registros [] = $value;
+                }
+                echo json_encode($registros);
+            }
+         }
+
 
 
         ;
