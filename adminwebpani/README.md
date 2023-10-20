@@ -1,4 +1,4 @@
-# administradorwebpani
+# adminwebpani
 
 ## Project setup
 ```
